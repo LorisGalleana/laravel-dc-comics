@@ -2,3 +2,11 @@
 .thumbnail {
     width: 80px;
 }
+
+.shadow {
+    text-shadow:
+        1px 1px 0 white, /* Ombra bianca a sinistra in alto */
+        -1px -1px 0 white, /* Ombra bianca a destra in basso */
+        1px -1px 0 white, /* Ombra bianca a destra in alto */
+        -1px 1px 0 white;
+}

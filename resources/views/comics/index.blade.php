@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="container my-5">
-    <h1>Elenco Fumetti</h1>
+    <h1 class="shadow">Elenco Fumetti</h1>
     <table class="table">
         <thead>
           <tr>
