@@ -1,17 +1,18 @@
 {{-- questa view estende il file main.blade.php che è dentro la cartella view/layouts --}}
 @extends('layouts.main')
 
-@section('hero')
-    <div>HERO HOME</div>
-@endsection
+
 
 @section('content')
-<div class="container my-5">
-    <h1>{{ $title }}</h1>
-    <img src="{{ Vite::asset('resources/img/colibri.jpg') }}" alt="" class="img-fluid">
-    <p>
-        {{ $text }}
-    </p>
+<div class="container my-5 bg-white p-3">
+    <h1>{{$title}} </h1>
+
+    <h3>
+        Nella libreria sono presenti {{$num_comics}} fumetti
+    </h3>
+    <h4>
+        Ultimo fumetto inserito: {{$last_comic_title}}
+    </h4>
 </div>
 
 @endsection
