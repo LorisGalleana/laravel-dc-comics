@@ -8,35 +8,67 @@
 @section('content')
 <div class="container my-5 bg-white">
     <h1>Nuovo fumetto</h1>
+
+    @if($errors->any())
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error )
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form class="py-5" action="{{ route('comics.store') }}" method="POST">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Titolo fumetto</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Titolo" >
+            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Titolo" value="{{ old('title') }}">
+            @error('title')
+                <small class="text-danger"> {{ $message }} </small>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="src" class="form-label">Immagine fumetto</label>
-            <input type="text" class="form-control" id="src" name="thumb" placeholder="Percorso immagine" >
+            <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="src" name="thumb" placeholder="Percorso immagine" value="{{ old('thumb') }}">
+            @error('thumb')
+                <small class="text-danger"> {{ $message }} </small>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione fumetto</label>
-            <textarea class="form-control" id="description" cols="30" rows="5" name="description" placeholder="Descrizione" ></textarea>
+            <textarea class="form-control @error('description') is-invalid @enderror" id="description" cols="30" rows="5" name="description" placeholder="Descrizione" >{{ old('description') }}</textarea>
+            @error('description')
+                <small class="text-danger"> {{ $message }} </small>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Titolo fumetto</label>
-            <input type="text" class="form-control" id="price" name="price" placeholder="Prezzo" >
+            <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="Prezzo" value="{{ old('price') }}">
+            @error('price')
+                <small class="text-danger"> {{ $message }} </small>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="series" class="form-label">Serie fumetto</label>
-            <input type="text" class="form-control" id="series" name="series" placeholder="Serie" >
+            <input type="text" class="form-control @error('series') is-invalid @enderror" id="series" name="series" placeholder="Serie" value="{{ old('series') }}">
+            @error('series')
+                <small class="text-danger"> {{ $message }} </small>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="date" class="form-label">Data uscita fumetto</label>
-            <input type="date" class="form-control" id="date" name="sale_date" placeholder="data di uscita" >
+            <input type="date" class="form-control @error('sale_date') is-invalid @enderror" id="date" name="sale_date" placeholder="data di uscita" value="{{ old('sale_date') }}">
+            @error('sale_date')
+                <small class="text-danger"> {{ $message }} </small>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="type" class="form-label">Tipo fumetto</label>
-            <input type="text" class="form-control" id="type" name="type" placeholder="Tipo" >
+            <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type" placeholder="Tipo" value="{{ old('type') }}">
+            @error('type')
+                <small class="text-danger"> {{ $message }} </small>
+            @enderror
         </div>
         <div class="mb-3">
             <button type="submit" href="#" class="btn btn-success">Invia</button>
